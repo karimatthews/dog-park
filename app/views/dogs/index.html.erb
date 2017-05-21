@@ -1,31 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Dogs</h1>
+<div class = 'contents'>
+  <h1 id='dogs'>Dogs</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Breed</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @dogs.each do |dog| %>
-      <tr>
-        <td><%= dog.name %></td>
-        <td><%= dog.age %></td>
-        <td><%= dog.breed %></td>
-        <td><%= link_to 'Show', dog %></td>
-        <td><%= link_to 'Edit', edit_dog_path(dog) %></td>
-        <td><%= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% @dogs.each do |dog| %>
+          <p>
+            <%= dog.name.strip %>   the
+            <%= dog.age %>          year old
+            <%= dog.breed.strip %>.
+            <br>
+            <%= link_to "Get to know #{dog.name.strip}", dog %> |
+            <%= link_to "Edit #{dog.name.strip}'s details", edit_dog_path(dog) %> |
+            <%= link_to "#{dog.name.strip} wants some space", dog, method: :delete, data: { confirm: 'Are you sure you want to remove this dog\'s info?' } %>
+          </p>
+
+
+          <p></p>
+          <p></p>
+          <p></p>
+
+      <% end %>
 
 <br>
 
-<%= link_to 'New Dog', new_dog_path %>
+<%= link_to 'Add your dog to Parkr', new_dog_path %>
+
+</div>

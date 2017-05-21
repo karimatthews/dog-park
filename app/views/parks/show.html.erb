@@ -1,0 +1,40 @@
+<!-- Parks View -->
+
+<div class="contents">
+
+  <p id="notice"><%= notice %></p>
+
+
+
+
+  <h1>
+    <%= @park.name %>
+  </h1>
+
+  <div>
+  <p>
+    <strong>Address:</strong>
+    <%= @park.address %>
+    (<%= link_to 'Edit', edit_park_path(@park) %> )
+    </p>
+  </div>
+
+  <div>
+    <% @park.dogs.each do |dog| %>
+      <%= link_to dog.name.strip, dog %>
+      <br>
+    <% end %>
+  </div>
+
+  <div class='add-dog'>
+    <%= form_tag(controller: "parks", action: "add_dog", method: "post") do %>
+      <div class="field">
+        <%= label_tag :dog_name, "Dog Name" %>
+        <%= text_field_tag :dog_name %>
+        <p id="error"><%= flash[:error] %></p>
+      </div>
+      <%= submit_tag "Add Dog" %>
+
+    <% end %>
+  </div>
+</div>

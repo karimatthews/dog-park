@@ -1,0 +1,18 @@
+
+<div id = 'sidebar'>
+  <%= link_to("/") do %>
+    <div id='sidebarHeader' class = "sidebarTab">
+      <h2 style = 'text-align: center;'>Parkr</h2>
+      <p style = 'text-align: center;'>Where your dog <br> wants to be</p>
+    </div>
+  <% end %>
+
+  <%= link_to(dogs_path) do %>
+    <div class="sidebarTab <%= "activeTab" if current_page?(dogs_path) %> "> Dogs </div>
+  <% end %>
+
+  <%= link_to(parks_path) do %>
+    <div class="sidebarTab <%= "activeTab" if current_page?(parks_path) %> "> Parks </div>
+  <% end %>
+
+</div>

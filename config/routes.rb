@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   post "/parks/:id/add_dog", to: 'parks#add_dog'
 
   resources :parks
+
+  delete '/parks/:park_id/:dog_id', to: 'parks#remove_dog'
+
   resources :dogs
 
   get '/profile', to: 'users#show'

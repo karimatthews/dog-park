@@ -10,6 +10,7 @@ class ParksController < ApplicationController
   # GET /parks/1
   # GET /parks/1.json
   def show
+    @user = current_user
   end
 
   # GET /parks/new
@@ -68,9 +69,23 @@ class ParksController < ApplicationController
     if dog.nil?
       return redirect_to @park, flash: { error: 'Could not find dog' }
     end
+
+    if @park.dogs.include? dog
+      return redirect_to @park, flash: { error: 'Dog is already there' }
+    end
+
     @park.dogs << dog
     @park.save!
     redirect_to @park, notice: "Successfully added #{dog_name.strip}!"
+  end
+
+  def remove_dog
+    park = Park.find(params[:park_id])
+    dog = Dog.find(params[:dog_id])
+    return redirect_to park unless dog.authorize(current_user)
+
+    park.dogs.delete(dog)
+    redirect_to park, notice: "Successfully removed #{dog.name.strip}!"
   end
 
   private

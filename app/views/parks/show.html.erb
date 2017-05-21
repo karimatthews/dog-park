@@ -22,6 +22,9 @@
   <div>
     <% @park.dogs.each do |dog| %>
       <%= link_to dog.name.strip, dog %>
+      <% if dog.authorize(@user) %>
+        <%= link_to "(remove)", "/parks/#{@park.id}/#{dog.id}", method: :delete %>
+      <% end %>
       <br>
     <% end %>
   </div>
@@ -30,7 +33,9 @@
     <%= form_tag(controller: "parks", action: "add_dog", method: "post") do %>
       <div class="field">
         <%= label_tag :dog_name, "Dog Name" %>
-        <%= text_field_tag :dog_name %>
+        <%= select_tag :dog_name, options_for_select((@user.dogs - @park.dogs).collect{ |dog|
+          [dog.name, dog.name]
+          }) %>
         <p id="error"><%= flash[:error] %></p>
       </div>
       <%= submit_tag "Add Dog" %>

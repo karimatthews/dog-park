@@ -7,5 +7,9 @@
       <%= link_to dog.name, dog %>
     <% end %>
 
+  <h3>My parks:</h3>
+    <% @user.parks.each do |park| %>
+      <%= link_to park.name, park %>
+    <% end %>
 
 </div>

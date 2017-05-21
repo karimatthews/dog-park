@@ -7,6 +7,10 @@
     </div>
   <% end %>
 
+  <%= link_to('/profile') do %>
+    <div class="sidebarTab <%= "activeTab" if current_page?('/profile') %> "> Profile </div>
+  <% end %>
+
   <%= link_to(dogs_path) do %>
     <div class="sidebarTab <%= "activeTab" if current_page?(dogs_path) %> "> Dogs </div>
   <% end %>

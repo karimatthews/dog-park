@@ -1,6 +1,9 @@
-<h1>Editing Dog</h1>
+<div class='contents'>
 
-<%= render 'form', dog: @dog %>
+  <h1>
+    <%= @dog.name %>
+  </h1>
 
-<%= link_to 'Show', @dog %> |
-<%= link_to 'Back', dogs_path %>
+  <%= render 'form', dog: @dog %>
+
+</div>

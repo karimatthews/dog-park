@@ -1,19 +1,26 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @dog.name %>
-</p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @dog.age %>
-</p>
+<div class='contents'>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Breed:</strong>
-  <%= @dog.breed %>
-</p>
+  <h1>
+    <%= @dog.name %>
+  </h1>
 
-<%= link_to 'Edit', edit_dog_path(@dog) %> |
-<%= link_to 'Back', dogs_path %>
+  <div>
+    <p>
+      <%= @dog.name %>
+      is
+      <%= @dog.age.to_s.with_indefinite_article %>
+      year old
+      <%= @dog.breed %>
+      .
+      (<%= link_to 'Edit', edit_dog_path(@dog) %>)
+    </p>
+    <p>
+      <%= @dog.about %>
+    </p>
+  </div>
+
+
+</div>

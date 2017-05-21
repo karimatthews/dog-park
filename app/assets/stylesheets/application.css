@@ -20,11 +20,31 @@
    margin: 0;
  }
 
+ #page {
+   display: flex;
+   flex-direction: column;
+   background-color: white;
+   position: relative;
+ }
+
+ #topbar {
+   width: 100vw;
+   height: 15px;
+   background: rgba(0, 0, 0, 0.6);
+   color: white;
+   position: absolute;
+   z-index: 10;
+   padding: 15px;
+   /*opacity: 0.6;*/
+ }
+
  h1 {
    color: black;
+   line-height: initial;
  }
 
  .contents {
+   padding-top: 60px;
    padding-left: 60px;
    background-color: white;
    color: black;

@@ -12,6 +12,17 @@
 
   <body>
     <%= render "shared/sidebar" %>
-    <%= yield %>
+
+    <div id='page'>
+      <div id='topbar'>
+        <% if current_user %>
+          Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+        <% else %>
+          <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+        <% end %>
+      </div>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

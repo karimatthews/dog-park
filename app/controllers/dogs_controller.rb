@@ -1,5 +1,8 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:edit, :update, :new, :create, :destroy]
+  before_action :authorize_dog, only: [:edit, :update, :destroy]
+
 
   # GET /dogs
   # GET /dogs.json
@@ -25,6 +28,8 @@ class DogsController < ApplicationController
   # POST /dogs.json
   def create
     @dog = Dog.new(dog_params)
+
+    @dog.user = current_user
 
     respond_to do |format|
       if @dog.save
@@ -67,8 +72,13 @@ class DogsController < ApplicationController
       @dog = Dog.find(params[:id])
     end
 
+    # Make sure it's your dog
+    def authorize_dog
+      redirect_to dogs_path unless @dog.authorize(current_user)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def dog_params
-      params.require(:dog).permit(:name, :age, :breed)
+      params.require(:dog).permit(:name, :age, :breed, :about)
     end
 end

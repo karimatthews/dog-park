@@ -1,0 +1,11 @@
+<div class='contents'>
+
+  <h1><%= @user.name %></h1>
+
+  <h3>My dogs:</h3>
+    <% @user.dogs.each do |dog| %>
+      <%= link_to dog.name, dog %>
+    <% end %>
+
+
+</div>

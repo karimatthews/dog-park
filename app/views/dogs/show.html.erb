@@ -1,5 +1,4 @@
-
-
+<!-- View for Show Dog -->
 <div class='contents'>
   <p id="notice"><%= notice %></p>
 
@@ -8,18 +7,41 @@
   </h1>
 
   <div>
-    <p>
+      <strong> Owner: </strong>
+      <%= @dog.owner %>
+  </div>
+
+  <br><br>
+
+  <div>
+      <strong> Favourite Parks: </strong>
+      <br><br>
+      <% @dog.parks.each do |park| %>
+        <%= link_to park.name.strip, park %>
+        <br><br>
+      <% end %>
+  </div>
+
+  <br><br>
+
+  <div>
+    <strong>  About: </strong>
+    <div>
       <%= @dog.name %>
       is
       <%= @dog.age.to_s.with_indefinite_article %>
       year old
-      <%= @dog.breed %>
-      .
-      (<%= link_to 'Edit', edit_dog_path(@dog) %>)
-    </p>
-    <p>
-      <%= @dog.about %>
-    </p>
+      <%= @dog.breed %>.
+
+      <% if @dog.authorize(@user) %>
+        (<%= link_to 'Edit', edit_dog_path(@dog) %> |
+        <%= link_to "Remove", @dog, method: :delete, data: { confirm: 'Are you sure you want to remove this dog\'s info?' } %>)
+      <% end %>
+
+      <br><br>
+    </div>
+
+    <%= @dog.about %>
   </div>
 
 

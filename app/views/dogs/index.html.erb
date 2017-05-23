@@ -1,29 +1,21 @@
-<p id="notice"><%= notice %></p>
+
 
 <div class = 'contents'>
-  <h1 id='dogs'>Dogs</h1>
 
+  <p id="notice"><%= notice %></p>
 
-      <% @dogs.each do |dog| %>
-          <p>
-            <%= dog.name.strip %>   the
-            <%= dog.age %>          year old
-            <%= dog.breed.strip %>.
-            <br>
-            <%= link_to "Get to know #{dog.name.strip}", dog %> |
-            <%= link_to "Edit #{dog.name.strip}'s details", edit_dog_path(dog) %> |
-            <%= link_to "#{dog.name.strip} wants some space", dog, method: :delete, data: { confirm: 'Are you sure you want to remove this dog\'s info?' } %>
-          </p>
+  <div class='add-new'>
+    <%= link_to 'Add a dog to Parkr', new_dog_path %>
+  </div>
 
+  <h1 id='dogs'>Your Dogs</h1>
 
-          <p></p>
-          <p></p>
-          <p></p>
-
-      <% end %>
-
-<br>
-
-<%= link_to 'Add your dog to Parkr', new_dog_path %>
-
+  <% @dogs.each do |dog| %>
+    <% if dog.authorize(@user) %>
+      <%=link_to "#{dog.name.strip}", dog %>
+      (<%=  link_to "Edit", edit_dog_path(dog) %>)
+    <% end %>
+    <br>
+    <br>
+  <% end %>
 </div>

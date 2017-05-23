@@ -4,26 +4,59 @@
 
   <p id="notice"><%= notice %></p>
 
-
-
-
   <h1>
     <%= @park.name %>
   </h1>
 
   <div>
-  <p>
     <strong>Address:</strong>
     <%= @park.address %>
-    (<%= link_to 'Edit', edit_park_path(@park) %> )
-    </p>
+    (<%= link_to 'Edit', edit_park_path(@park) %>)
   </div>
 
+  <div>
+    <strong>Is there an off-lead area?</strong>
+    <%=
+      if @park.offlead
+        "Yes"
+      else
+        "No"
+      end
+    %>
+    <br>
+    <br>
+    <strong>Is the park fully fenced?</strong>
+    <%=
+      if @park.fence
+        "Yes"
+      else
+        "No"
+      end
+    %>
+    <br>
+    <br>
+    <strong>Are doggy bags provided?</strong>
+    <%=
+      if @park.bag
+        "Yes"
+      else
+        "No"
+      end
+    %>
+    <br>
+    <br>
+  </div>
+
+  <br>
+  <br>
+
+  <h2> Local Dogs </h2>
   <div>
     <% @park.dogs.each do |dog| %>
       <%= link_to dog.name.strip, dog %>
       <% if dog.authorize(@user) %>
-        <%= link_to "(remove)", "/parks/#{@park.id}/#{dog.id}", method: :delete %>
+        <%= link_to "(remove)", "/parks/#{@park.id}/#{dog.id}", method: :delete,
+        data: { confirm: 'Are you sure you want to remove this dog from the park?' } %>
       <% end %>
       <br>
     <% end %>

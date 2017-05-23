@@ -4,9 +4,13 @@
 
   <%= form_for :user, url: '/users' do |form| %>
     Name: <%= form.text_field :name %>
+    <br><br>
     Email: <%= form.text_field :email %>
+    <br><br>
     Password: <%= form.password_field :password %>
+    <br><br>
     Password Confirmation: <%= form.password_field :password_confirmation %>
+    <br><br>
     <%= form.submit "Submit" %>
   <% end %>
 

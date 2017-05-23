@@ -4,15 +4,18 @@ class DogsController < ApplicationController
   before_action :authorize_dog, only: [:edit, :update, :destroy]
 
 
+
   # GET /dogs
   # GET /dogs.json
   def index
     @dogs = Dog.all
+    @user = current_user
   end
 
   # GET /dogs/1
   # GET /dogs/1.json
   def show
+    @user = current_user
   end
 
   # GET /dogs/new
@@ -47,7 +50,7 @@ class DogsController < ApplicationController
   def update
     respond_to do |format|
       if @dog.update(dog_params)
-        format.html { redirect_to @dog, notice: 'Dog was successfully updated.' }
+        format.html { redirect_to @dog, notice: "#{@dog.name}'s details were successfully updated." }
         format.json { render :show, status: :ok, location: @dog }
       else
         format.html { render :edit }
@@ -61,7 +64,7 @@ class DogsController < ApplicationController
   def destroy
     @dog.destroy
     respond_to do |format|
-      format.html { redirect_to dogs_url, notice: 'Dog was successfully destroyed.' }
+      format.html { redirect_to dogs_url, notice: "#{@dog.name} was successfully removed from Parkr." }
       format.json { head :no_content }
     end
   end
@@ -79,6 +82,9 @@ class DogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dog_params
-      params.require(:dog).permit(:name, :age, :breed, :about)
+      from_params = params.require(:dog).permit(:name, :age, :breed, :owner, :about)
+      from_params.transform_values {|element|
+        element.strip
+      }
     end
 end

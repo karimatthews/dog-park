@@ -27,6 +27,11 @@
     </div>
 
     <div class="field">
+      <%= form.label :owner %>
+      <%= form.text_field :owner, value: @current_user.name, id: :dog_owner %>
+    </div>
+
+    <div class="field">
       <%= form.label :about %>
       <%= form.text_area :about, id: :dog_about %>
     </div>

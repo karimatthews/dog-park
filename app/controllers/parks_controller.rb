@@ -9,9 +9,7 @@ class ParksController < ApplicationController
 
   # GET /parks/1
   # GET /parks/1.json
-  def show
-    @user = current_user
-  end
+
 
   # GET /parks/new
   def new
@@ -20,6 +18,10 @@ class ParksController < ApplicationController
 
   # GET /parks/1/edit
   def edit
+  end
+
+  def show
+    @user = current_user
   end
 
   # POST /parks
@@ -96,6 +98,9 @@ class ParksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def park_params
-      params.require(:park).permit(:name, :address)
+      from_params = params.require(:park).permit(:name, :address, :offlead, :fence, :bag)
+      from_params.transform_values {|element|
+        element.strip
+      }
     end
 end

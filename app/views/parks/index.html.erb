@@ -1,31 +1,25 @@
-<p id="notice"><%= notice %></p>
+<!-- View for Parks.index -->
 
 <div class='contents'>
+  <p id="notice"><%= notice %></p>
+
+  <div class='add-new'>
+    <%= link_to 'Add a New Park', new_park_path %>
+  </div>
+
   <h1>Parks</h1>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Address</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+  <% @parks.each do |park| %>
+    <h3>
+      <%= link_to "#{park.name}", park %>
+      (<%= link_to 'Edit', edit_park_path(park) %> |
+      <%= link_to 'Remove', park, method: :delete, data: { confirm: 'Are you sure?' } %>)
+    </h3>
 
-    <tbody>
-      <% @parks.each do |park| %>
-        <tr>
-          <td><%= park.name %></td>
-          <td><%= park.address %></td>
-          <td><%= link_to 'Show', park %></td>
-          <td><%= link_to 'Edit', edit_park_path(park) %></td>
-          <td><%= link_to 'Destroy', park, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    Address: <%= park.address %>
+    <br>
+    <br>
+  <% end %>
 
   <br>
-
-  <%= link_to 'New Park', new_park_path %>
 </div>

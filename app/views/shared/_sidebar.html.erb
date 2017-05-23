@@ -7,13 +7,15 @@
     </div>
   <% end %>
 
-  <%= link_to('/profile') do %>
-    <div class="sidebarTab <%= "activeTab" if current_page?('/profile') %> "> Profile </div>
+  <% if current_user %>
+    <%= link_to('/profile') do %>
+      <div class="sidebarTab <%= "activeTab" if current_page?('/profile') %> "> My Profile </div>
+    <% end %>
   <% end %>
 
-  <%= link_to(dogs_path) do %>
-    <div class="sidebarTab <%= "activeTab" if current_page?(dogs_path) %> "> Dogs </div>
-  <% end %>
+  <!-- <%= link_to(dogs_path) do %>
+    <div class="sidebarTab <%= "activeTab" if current_page?(dogs_path) %> "> My Dogs </div>
+  <% end %> -->
 
   <%= link_to(parks_path) do %>
     <div class="sidebarTab <%= "activeTab" if current_page?(parks_path) %> "> Parks </div>

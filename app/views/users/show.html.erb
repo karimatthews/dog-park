@@ -1,15 +1,30 @@
+<!-- View for User Profile -->
+
 <div class='contents'>
 
   <h1><%= @user.name %></h1>
 
   <h3>My dogs:</h3>
-    <% @user.dogs.each do |dog| %>
-      <%= link_to dog.name, dog %>
-    <% end %>
 
-  <h3>My parks:</h3>
-    <% @user.parks.each do |park| %>
-      <%= link_to park.name, park %>
-    <% end %>
+  <% @user.dogs.each do |dog| %>
+    <%= link_to dog.name, dog %>
+    (<%=  link_to "Edit", edit_dog_path(dog) %>)
+    <br>
+    <br>
+  <% end %>
+
+  <div class='add-new'>
+    <%= link_to 'Add a dog to Parkr', new_dog_path %>
+  </div>
+
+  <br><br>
+
+  <h3>My favourite parks:</h3>
+
+  <% @user.parks.each do |park| %>
+    <%= link_to park.name, park %>
+    <br>
+    <br>
+  <% end %>
 
 </div>

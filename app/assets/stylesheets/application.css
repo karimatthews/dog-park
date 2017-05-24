@@ -38,9 +38,9 @@ COLOURS
    background-color: #EAEBE9;
    display: flex;
    flex-direction: row;
-   margin: 0;
    width: 100vw;
    position:fixed;
+   margin: 0;
    top:0;
    bottom:0;
    left:0;
@@ -48,21 +48,45 @@ COLOURS
    font-size:18px;
  }
 
+ h1 {
+   color: #001B10;
+   line-height: initial;
+   margin-top: 0px;
+ }
+
+ .contents {
+   display: flex;
+   flex-direction: column;
+   background-color: inherit;
+   color: inherit;
+   width: 100vw;
+   padding-top: 62px;
+   position: relative;
+   align-items: center;
+   justify-content: center;
+   margin: 40px;
+   overflow: auto;
+ }
+
+
+
  .card {
    padding: 20px;
    margin: 25px;
    border-radius: 10px;
-   background-color: #B7B8B6;
-   color: #001005;
+   background-color: #D1D2D0;
+   color: #383937;
    width: 300px;
    height: 100px;
-   box-shadow: 0px 3px 5px #383937;
+   box-shadow: 1px 4px 5px #2E4600;
  }
 
  .display-cards {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
+   align-items: center;
+   justify-content: center;
  }
 
  #select {
@@ -73,8 +97,8 @@ COLOURS
  #topbar {
    width: calc(100vw - 60px);
    height: 30px;
-   background: #B7B8B6 ;
-   color: #001005;
+   background: #2E4600 ;
+   color: #EAEBE9;
    position: absolute;
    z-index: 10;
    padding-right: 60px;
@@ -85,22 +109,19 @@ COLOURS
    box-shadow: 0px 3px 5px #383937;
  }
 
- h1 {
-   color: #001B10;
-   line-height: initial;
+ #topbar a {
+   padding: 10px;
+   border-radius: 5px;
  }
 
- .contents {
-   padding-top: 60px;
-   padding-left: 60px;
-    background-color: inherit;
-   color: black;
-   width: 100vw;
-   position: relative;
+ #topbar  a:hover {
+   background-color: #213900;
  }
 
- .add-new {
- }
+
+
+
+ /* sidebar stuff*/
 
  #sidebar {
    background-color:  #001B10;

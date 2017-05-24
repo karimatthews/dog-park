@@ -2,47 +2,60 @@
 <div class='contents'>
   <p id="notice"><%= notice %></p>
 
-  <h1>
-    <%= @dog.name %>
-  </h1>
-
-  <div>
-      <strong> Owner: </strong>
-      <%= @dog.owner %>
-  </div>
-
-  <br><br>
-
-  <div>
-      <strong> Favourite Parks: </strong>
-      <br><br>
-      <% @dog.parks.each do |park| %>
-        <%= link_to park.name.strip, park %>
-        <br><br>
-      <% end %>
-  </div>
-
-  <br><br>
-
-  <div>
-    <strong>  About: </strong>
-    <div>
+  <div style='display: flex'>
+    <h1>
       <%= @dog.name %>
-      is
-      <%= @dog.age.to_s.with_indefinite_article %>
-      year old
-      <%= @dog.breed %>.
+    </h1>
 
+    <span style='margin-top: 65px;'>
       <% if @dog.authorize(@user) %>
         (<%= link_to 'Edit', edit_dog_path(@dog) %> |
         <%= link_to "Remove", @dog, method: :delete, data: { confirm: 'Are you sure you want to remove this dog\'s info?' } %>)
       <% end %>
+    </span>
+  </div>
 
-      <br><br>
+
+
+  <div>
+    <div style='font-size:24px'>
+      <%= @dog.name %>
+      is
+      <%= @dog.age.to_s.with_indefinite_article %>
+      year old
+      <%= @dog.breed %>
+      owned by
+      <%= @dog.owner %>.
+
+      <br><br><br>
     </div>
-
+    <strong>  About: </strong>
     <%= @dog.about %>
   </div>
+
+  <br><br>
+
+  <strong> Favourite Parks: </strong>
+
+  <div class = 'display-cards'>
+    <% @dog.parks.each do |park| %>
+      <%= link_to park do %>
+        <div class='card'>
+              <span style='font-size: 30px;'>
+                <%= park.name %>
+              </span>
+          <br><br>
+          <%= park.address %>
+          <br><br>
+          <%= link_to "(Leave this park)", "/parks/#{park.id}/#{@dog.id}", method: :delete,
+            data: { confirm: "Are you sure you want to remove #{@dog.name} dog from the park?" } %>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+
+
 
 
 </div>

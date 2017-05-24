@@ -6,25 +6,40 @@
 
   <h3>My dogs:</h3>
 
-  <% @user.dogs.each do |dog| %>
-    <%= link_to dog.name, dog %>
-    (<%=  link_to "Edit", edit_dog_path(dog) %>)
-    <br>
-    <br>
-  <% end %>
+  <div class = 'display-cards'>
+    <% @user.dogs.each do |dog| %>
+      <%= link_to dog do %>
+        <div class='card'>
+              <p style='font-size: 30px; text-align: center; padding: 0;'>
+                <%= dog.name %>
+              </p>
+        </div>
+      <% end %>
+    <% end %>
 
-  <div class='add-new'>
-    <%= link_to 'Add a dog to Parkr', new_dog_path %>
+    <%= link_to (new_dog_path) do %>
+      <div class='card add-button'>
+        <p style ='font-size:80px; float: left; font-weight: 100; margin: 0; line-height:80px; width: 300px; text-align: center;'>
+          +
+        </p>
+      </div>
+    <% end %>
   </div>
 
-  <br><br>
 
   <h3>My favourite parks:</h3>
 
-  <% @user.parks.each do |park| %>
-    <%= link_to park.name, park %>
-    <br>
-    <br>
-  <% end %>
-
+  <div class = 'display-cards'>
+    <% @user.parks.each do |park| %>
+      <%= link_to park do %>
+        <div class='card'>
+              <span style='font-size: 30px;'>
+                <%= park.name %>
+              </span>
+          <br><br>
+          <%= park.address %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

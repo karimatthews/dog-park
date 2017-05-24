@@ -3,23 +3,31 @@
 <div class='contents'>
   <p id="notice"><%= notice %></p>
 
-  <div class='add-new'>
+  <!-- <div class='add-new'>
     <%= link_to 'Add a New Park', new_park_path %>
-  </div>
+  </div> -->
 
   <h1>Parks</h1>
 
-  <% @parks.each do |park| %>
-    <h3>
-      <%= link_to "#{park.name}", park %>
-      (<%= link_to 'Edit', edit_park_path(park) %> |
-      <%= link_to 'Remove', park, method: :delete, data: { confirm: 'Are you sure?' } %>)
-    </h3>
+  <div class = 'display-cards'>
+    <% @parks.each do |park| %>
+      <%= link_to park do %>
+        <div class='card'>
+              <span style='font-size: 30px;'>
+                <%= park.name %>
+              </span>
+          <br><br>
+          <%= park.address %>
+        </div>
+      <% end %>
+    <% end %>
 
-    Address: <%= park.address %>
-    <br>
-    <br>
-  <% end %>
-
-  <br>
+    <%= link_to (parks_path) do %>
+      <div class='card add-button'>
+        <p style ='font-size:80px; float: left; font-weight: 100; margin: 0; line-height:80px; width: 300px; text-align: center;'>
+          +
+        </p>
+      </div>
+    <% end %>
+  </div>
 </div>

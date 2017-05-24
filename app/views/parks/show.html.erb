@@ -1,46 +1,50 @@
 <!-- Parks View -->
-
 <div class="contents">
 
   <p id="notice"><%= notice %></p>
 
-  <h1>
-    <%= @park.name %>
-  </h1>
+  <div style='display: flex'>
+    <h1>
+      <%= @park.name %>
+    </h1>
+
+    <span style='margin-top: 65px;'>
+      (<%= link_to 'Edit', edit_park_path(@park) %> |
+      <%= link_to 'Remove', @park, method: :delete, data: { confirm: 'Are you sure?' } %>)
+    </span>
+  </div>
 
   <div>
     <strong>Address:</strong>
     <%= @park.address %>
-    (<%= link_to 'Edit', edit_park_path(@park) %>)
-  </div>
+    <br>
+    <br>
 
-  <div>
-    <strong>Is there an off-lead area?</strong>
+    <!-- <strong>Is there an off-lead area?</strong> -->
     <%=
-      if @park.offlead
-        "Yes"
-      else
-        "No"
-      end
+    if @park.offlead ==1
+      "There is an off-lead area."
+    else
+      "There is no off-lead area."
+    end
+    %>
+    <br><br>
+    <!-- <strong>Is the park fully fenced?</strong> -->
+    <%=
+    if @park.fence == 1
+      "The park is fully-fenced."
+    else
+      "The park is not fully fenced."
+    end
     %>
     <br>
     <br>
-    <strong>Is the park fully fenced?</strong>
+    <!-- <strong>Are doggy bags provided?</strong> -->
     <%=
-      if @park.fence
-        "Yes"
+      if @park.bag == 1
+        "Dog bags are provided."
       else
-        "No"
-      end
-    %>
-    <br>
-    <br>
-    <strong>Are doggy bags provided?</strong>
-    <%=
-      if @park.bag
-        "Yes"
-      else
-        "No"
+        "No dog bags provided."
       end
     %>
     <br>
@@ -50,29 +54,31 @@
   <br>
   <br>
 
-  <h2> Local Dogs </h2>
-  <div>
+
+  <div class = 'display-cards'>
     <% @park.dogs.each do |dog| %>
-      <%= link_to dog.name.strip, dog %>
-      <% if dog.authorize(@user) %>
-        <%= link_to "(remove)", "/parks/#{@park.id}/#{dog.id}", method: :delete,
-        data: { confirm: 'Are you sure you want to remove this dog from the park?' } %>
+      <%= link_to dog do %>
+        <div class='card'>
+              <p style='font-size: 30px; text-align: center; padding: 0;'>
+                <%= dog.name %>
+              </p>
+        </div>
       <% end %>
-      <br>
     <% end %>
-  </div>
 
-  <div class='add-dog'>
-    <%= form_tag(controller: "parks", action: "add_dog", method: "post") do %>
-      <div class="field">
-        <%= label_tag :dog_name, "Dog Name" %>
-        <%= select_tag :dog_name, options_for_select((@user.dogs - @park.dogs).collect{ |dog|
-          [dog.name, dog.name]
-          }) %>
-        <p id="error"><%= flash[:error] %></p>
-      </div>
-      <%= submit_tag "Add Dog" %>
+    <div class='card'>
+      <%= form_tag(controller: "parks", action: "add_dog", method: "post") do %>
+        <div class="field" style='font-size: 30px; text-align: center; padding: 0;'>
+          <%= select_tag :dog_name, options_for_select((@user.dogs - @park.dogs).collect{ |dog|
+            [dog.name, dog.name]
+            }) %>
+          <p id="error"><%= flash[:error] %></p>
+        </div>
+        <div style='font-size: 30px; text-align: center; padding: 0;'>
+          <%= submit_tag "Add Dog" %>
+        </div>
 
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

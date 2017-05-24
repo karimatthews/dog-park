@@ -14,7 +14,28 @@
  *= require_self
  */
 
+ /*
+COLOURS
+
+
+#EDE681
+
+#B7B8B6
+
+#CDCDC0
+
+#4CB5F5
+
+#B7B8B6
+
+#013429
+
+#B3C100
+
+ */
+
  body {
+   background-color: #EAEBE9;
    display: flex;
    flex-direction: row;
    margin: 0;
@@ -24,6 +45,24 @@
    bottom:0;
    left:0;
    right:0;
+   font-size:18px;
+ }
+
+ .card {
+   padding: 20px;
+   margin: 25px;
+   border-radius: 10px;
+   background-color: #B7B8B6;
+   color: #001005;
+   width: 300px;
+   height: 100px;
+   box-shadow: 0px 3px 5px #383937;
+ }
+
+ .display-cards {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
  }
 
  #select {
@@ -33,79 +72,87 @@
  #page {
    display: flex;
    flex-direction: column;
-   background-color: white;
+   background-color: inherit;
    position: relative;
    width: 100vw;
  }
 
  #topbar {
-   width: 100vw;
-   height: 15px;
-   background: rgba(0, 0, 0, 0.6);
-   color: white;
+   width: calc(100vw - 210px);
+   height: 20px;
+   background: #B7B8B6 ;
+   color: #001005;
    position: absolute;
    z-index: 10;
-   padding: 15px;
-   margin-right: 0;
-   /*text-align: right;*/
-   /*opacity: 0.6;*/
+   padding-right: 60px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   text-align: right;
+   box-shadow: 0px 3px 5px #383937;
  }
 
  h1 {
-   color: black;
+   color: #001B10;
    line-height: initial;
  }
 
  .contents {
    padding-top: 60px;
    padding-left: 60px;
-   background-color: white;
+    background-color: inherit;
    color: black;
    width: 100vw;
+   position: relative;
  }
 
  .add-new {
  }
 
  #sidebar {
-   background-color: black;
-   color: white;
+   background-color:  #001B10;
+   color: #EAEBE9;
    display: flex;
    flex-direction: column;
-   width: 200px;
+   width: 150px;
    height: 100vh;
+   /*text-decoration: bold;*/
+   position: relative;
+   border: 1px, #001B10;
  }
 
 #sidebarHeader {
   padding-bottom: 20px;
   padding-left: 0;
+  width: 150px;
   height: 100px;
+  /*z-index: -10;*/
+  position: relative;
 }
 
  #sidebarHeader:hover {
-   background-color: black;
+   /*background-color: black;*/
  }
 
 .sidebarTab {
   height: 50px;
   width: 200px;
-  background-color: black;
-  color: white;
-  font-size: 48;
+  background-color: #001B10;
+  color: #EAEBE9;
   /*border: none;*/
   padding-left: 20px;
-  text-decoration: none;
+  /*text-decoration: bold;*/
   vertical-align: center;
   padding-top: 20px;
-
-
+   border: 3px, #001B10;
 }
 
 
 .sidebarTab:hover {
-  background-color: gray;
+  background-color:  #013429;
+  color: #EAEBE9;
 }
 
 .activeTab {
-  background-color: gray;
+  background-color: #B3C100;
+  color: black;
 }

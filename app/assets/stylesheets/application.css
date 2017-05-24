@@ -69,25 +69,19 @@ COLOURS
    width: 200vw;
  }
 
- #page {
-   display: flex;
-   flex-direction: column;
-   background-color: inherit;
-   position: relative;
-   width: 100vw;
- }
 
  #topbar {
-   width: calc(100vw - 210px);
-   height: 20px;
+   width: calc(100vw - 60px);
+   height: 30px;
    background: #B7B8B6 ;
    color: #001005;
    position: absolute;
    z-index: 10;
    padding-right: 60px;
-   padding-top: 10px;
+   padding-left: 40px;
+   padding-top: 20px;
    padding-bottom: 10px;
-   text-align: right;
+   /*text-align: right;*/
    box-shadow: 0px 3px 5px #383937;
  }
 

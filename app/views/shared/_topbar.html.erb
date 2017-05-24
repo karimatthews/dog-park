@@ -1,0 +1,19 @@
+<!-- Topbar View -->
+<div id='topbar' style = 'display: flex; flex-direction: row;'>
+
+  <%= link_to("/") do %>
+    <strong>Parkr</strong>
+  <% end %>
+
+  <div style = 'margin-left: 40px;'>
+    <%= link_to 'All Parks', parks_path %>
+  </div>
+
+  <div style = 'margin-left: auto;'>
+    <% if current_user %>
+        <%= link_to 'My Profile', '/profile' %> | <%= link_to "Logout", '/logout' %>
+    <% else %>
+      <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+    <% end %>
+  </div>
+</div>

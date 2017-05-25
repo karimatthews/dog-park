@@ -39,7 +39,7 @@ COLOURS
    display: flex;
    flex-direction: row;
    width: 100vw;
-   position:fixed;
+   /*position:fixed;*/
    margin: 0;
    top:0;
    bottom:0;
@@ -52,7 +52,93 @@ COLOURS
    color: #001B10;
    line-height: initial;
    margin-top: 0px;
+   margin-left: 0px;
  }
+
+ h3 {
+   margin: 20px;
+   margin-left: 0px;
+ }
+
+ a {
+   color: inherit;
+   text-decoration: none;
+ }
+
+ .field {
+   margin-bottom: 10px;
+   display: flex;
+   flex-direction: column;
+ }
+
+ .check {
+   display: flex;
+   flex-direction: row;
+ }
+
+ .row {
+   flex-direction: row;
+ }
+
+ label {
+   display: block;
+   margin: 4px;
+   margin-left: 13px;
+ }
+
+.required-star {
+  vertical-align: sub;
+  padding-left: 0;
+}
+
+.form input {
+  margin-left: 13px;
+  width: 150px;
+}
+
+.form textarea {
+  margin-left: 13px;
+  width: 150px;
+}
+
+.row input {
+  margin-left: 0px;
+}
+
+input[type=submit] {
+  width: 100px;
+}
+
+.check {
+  display: flex;
+  flex-direction: row;
+}
+
+input[type='checkbox'] {
+  margin: 0px;
+  width: 20px;
+  height: 30px;
+  padding: 0px;
+}
+
+ #notice {
+   color: green;
+ }
+
+ .field_with_errors {
+   padding: 2px;
+   background-color: red;
+   display: table;
+ }
+
+ #error_explanation {
+   width: 450px;
+   border: 2px solid red;
+   padding: 7px 7px 0;
+   margin-bottom: 20px;
+   background-color: #f0f0f0;
+}
+
 
  .contents {
    display: flex;
@@ -62,22 +148,35 @@ COLOURS
    width: 100vw;
    padding-top: 62px;
    position: relative;
-   align-items: center;
-   justify-content: center;
-   margin: 40px;
+   /*align-items: center;
+   justify-content: center;*/
+   margin-top: 40px;
+   margin-right: 60px;
+   margin-left: 60px;
    overflow: auto;
  }
 
-
+.form {
+  padding: 40px;
+  margin: 25px;
+  border-radius: 10px;
+  background-color: #D1D2D0;
+  color: #383937;
+  box-shadow: 1px 4px 5px #2E4600;
+  width: fit-content;
+}
 
  .card {
    padding: 20px;
+   padding-top: 40px;
    margin: 25px;
+   margin-left: 0px;
+   margin-top: 0px;
    border-radius: 10px;
    background-color: #D1D2D0;
    color: #383937;
    width: 300px;
-   height: 100px;
+   height: 120px;
    box-shadow: 1px 4px 5px #2E4600;
  }
 
@@ -85,13 +184,10 @@ COLOURS
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
-   align-items: center;
-   justify-content: center;
+   margin-bottom: 20px;
+   height: fit-content;
  }
 
- #select {
-   width: 200vw;
- }
 
 
  #topbar {

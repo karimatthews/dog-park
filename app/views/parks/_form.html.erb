@@ -13,12 +13,22 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :park_name %>
+    <div class='row'>
+      <span class='required-star'>
+        *
+      </span>
+      <%= form.text_field( :name, id: :park_name, :required => true) %>
+    </div>
   </div>
 
   <div class="field">
     <%= form.label :address %>
-    <%= form.text_field :address, id: :park_address %>
+    <div class='row'>
+      <span class='required-star'>
+        *
+      </span>
+      <%= form.text_field :address, id: :park_address %>
+    </div>
   </div>
 
   <br>

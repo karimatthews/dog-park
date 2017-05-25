@@ -1,4 +1,4 @@
-<!-- Parks View -->
+<!-- Show Park View -->
 <div class="contents">
 
   <p id="notice"><%= notice %></p>
@@ -8,10 +8,12 @@
       <%= @park.name %>
     </h1>
 
-    <span style='margin-top: 65px;'>
+    <% if current_user %>
+    <span style='margin-top: 25px;'>
       (<%= link_to 'Edit', edit_park_path(@park) %> |
       <%= link_to 'Remove', @park, method: :delete, data: { confirm: 'Are you sure?' } %>)
     </span>
+    <% end %>
   </div>
 
   <div>
@@ -66,19 +68,29 @@
       <% end %>
     <% end %>
 
-    <div class='card add-button'>
-      <%= form_tag(controller: "parks", action: "add_dog", method: "post") do %>
-        <div class="field" style='font-size: 30px; text-align: center; padding: 0;'>
-          <%= select_tag :dog_name, options_for_select((@user.dogs - @park.dogs).collect{ |dog|
-            [dog.name, dog.name]
-            }) %>
-          <p id="error"><%= flash[:error] %></p>
-        </div>
-        <div style='font-size: 30px; text-align: center; padding: 0;'>
-          <%= submit_tag "Add Dog" %>
-        </div>
 
-      <% end %>
-    </div>
+    <% if current_user %>
+      <div class='card' style='align-items: center; justify-content: center;'>
+
+        <%= form_tag(controller: "parks", action: "add_dog", method: "post") do  %>
+
+          <div style='display: flex; flex-direction: row;  height: 100px; align-items: center; justify-content: center;'>
+            <div class="field" style=' text-align: center; padding: 0px; padding-top:40px; margin: 0px;'>
+              <%= select_tag( :dog_name,
+              options_for_select((@user.dogs - @park.dogs).collect{ |dog| [dog.name, dog.name]}),
+              {:style => 'width:180px; background-color:white;'})
+              %>
+              <p id="error"><%= flash[:error] %></p>
+            </div>
+
+            <div style='text-align: center; padding: 0; padding-left:20px;'>
+              <%= submit_tag "Add Dog" %>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+    <% end %>
+
   </div>
 </div>

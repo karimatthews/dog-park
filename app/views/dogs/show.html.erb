@@ -7,7 +7,7 @@
       <%= @dog.name %>
     </h1>
 
-    <span style='margin-top: 65px;'>
+    <span style='margin-top: 25px;'>
       <% if @dog.authorize(@user) %>
         (<%= link_to 'Edit', edit_dog_path(@dog) %> |
         <%= link_to "Remove", @dog, method: :delete, data: { confirm: 'Are you sure you want to remove this dog\'s info?' } %>)
@@ -35,7 +35,7 @@
 
   <br><br>
 
-  <strong> Favourite Parks: </strong>
+  <h3> Favourite Parks: </h3>
 
   <div class = 'display-cards'>
     <% @dog.parks.each do |park| %>
@@ -47,8 +47,10 @@
           <br><br>
           <%= park.address %>
           <br><br>
+          <% if current_user && @dog.authorize(current_user) %>
           <%= link_to "(Leave this park)", "/parks/#{park.id}/#{@dog.id}", method: :delete,
             data: { confirm: "Are you sure you want to remove #{@dog.name} dog from the park?" } %>
+          <% end %>
         </div>
       <% end %>
     <% end %>

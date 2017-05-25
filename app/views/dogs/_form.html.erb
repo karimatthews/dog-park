@@ -11,9 +11,14 @@
       </div>
     <% end %>
 
-    <div class="field">
+    <div class="field" > 
       <%= form.label :name %>
-      <%= form.text_field :name, id: :dog_name %>
+      <div class='row'>
+        <span class='required-star'>
+          *
+        </span>
+        <%= form.text_field( :name, id: :dog_name, :required => true) %>
+      </div>
     </div>
 
     <div class="field">

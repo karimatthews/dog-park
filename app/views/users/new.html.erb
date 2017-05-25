@@ -2,16 +2,45 @@
 
   <h1>Create an Account</h1>
 
-  <%= form_for :user, url: '/users' do |form| %>
-    Name: <%= form.text_field :name %>
-    <br><br>
-    Email: <%= form.text_field :email %>
-    <br><br>
-    Password: <%= form.password_field :password %>
-    <br><br>
-    Password Confirmation: <%= form.password_field :password_confirmation %>
-    <br><br>
-    <%= form.submit "Submit" %>
-  <% end %>
+  <div class='form'>
+    <%= form_for :user, url: '/users' do |form| %>
+
+      <div class='row'>
+        <%= form.label :name %>
+        <span class='required-star'>
+          *
+        </span>
+        <%= form.text_field( :name, id: :user_name, :required => true) %>
+      </div>
+
+      <div class='row'>
+        <%= form.label :email %>
+        <span class='required-star'>
+          *
+        </span>
+        <%= form.text_field( :email, id: :user_email, :required => true) %>
+      </div>
+
+
+      <div class='row'>
+        <%= form.label :password %>
+        <span class='required-star'>
+          *
+        </span>
+        <%= form.text_field( :name, id: :user_password, :required => true) %>
+      </div>
+
+
+      <div class='row'>
+        <%= form.label :password_confirmation %>
+        <span class='required-star'>
+          *
+        </span>
+        <%= form.text_field( :name, id: :user_password_confirmation, :required => true) %>
+      </div>
+
+      <%= form.submit "Submit" %>
+    <% end %>
+  </div>
 
 </div>

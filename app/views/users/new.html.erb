@@ -27,7 +27,7 @@
         <span class='required-star'>
           *
         </span>
-        <%= form.text_field( :name, id: :user_password, :required => true) %>
+        <%= form.password_field( :password, id: :password, :required => true) %>
       </div>
 
 
@@ -36,7 +36,7 @@
         <span class='required-star'>
           *
         </span>
-        <%= form.text_field( :name, id: :user_password_confirmation, :required => true) %>
+        <%= form.password_field( :password_confirmation, id: :password_confirmation, :required => true) %>
       </div>
 
       <%= form.submit "Submit" %>

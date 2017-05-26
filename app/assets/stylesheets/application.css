@@ -55,6 +55,7 @@ COLOURS
    margin-left: 0px;
  }
 
+<<<<<<< Updated upstream
  h3 {
    margin: 20px;
    margin-left: 0px;
@@ -138,7 +139,6 @@ input[type='checkbox'] {
    margin-bottom: 20px;
    background-color: #f0f0f0;
 }
-
 
  .contents {
    display: flex;

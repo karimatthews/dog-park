@@ -5,15 +5,27 @@ html {
 
 
 .landing-background {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), image-url('familyphoto.jpg');
-  background-size: cover;
-  color: white;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  width: 100vw;
-  padding-top: 60px;
-  color: white;
+  margin: 40px;
+  justify-content: flex-start;
+
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), image-url('familyphoto.jpg');
+  // background-size: cover;
+  // color: white;
+  // margin: 0;
+  // padding: 0;
+  // height: 100vh;
+  // width: 100vw;
+  // padding-top: 60px;
+  // color: white;
+}
+
+.landing-background h1 {
+  margin: 0px;
+  margin-bottom: 80px;
+}
+
+.landing-list {
+  margin-top: 20px;
 }
 
 h1 {

@@ -70,9 +70,15 @@
 
 
     <% if current_user %>
-      <div class='card' style='align-items: center; justify-content: center;'>
 
-        <%= form_tag(controller: "parks", action: "add_dog", method: "post") do  %>
+        <%= link_to "/parks/#{@park.id}/new_dog" do %>
+          <div class='card'>
+            <p style ='font-size:80px; font-weight: 100; margin: 0; line-height:80px; width: 300px; text-align: center;'>
+              +
+            </p>
+          </div>
+        <% end %>
+        <!-- <%= form_tag(controller: "parks", action: "add_dog", method: "post") do  %>
 
           <div style='display: flex; flex-direction: row;  height: 100px; align-items: center; justify-content: center;'>
             <div class="field" style=' text-align: center; padding: 0px; padding-top:40px; margin: 0px;'>
@@ -88,8 +94,8 @@
             </div>
           </div>
 
-        <% end %>
-      </div>
+        <% end %> -->
+
     <% end %>
 
   </div>

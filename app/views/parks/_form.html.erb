@@ -1,4 +1,6 @@
 <%= form_with(model: park, local: true) do |form| %>
+
+<!-- This block does stuff with errors (I don't really understand it) -->
   <% if park.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(park.errors.count, "error") %> prohibited this park from being saved:</h2>

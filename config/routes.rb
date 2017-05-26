@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'pages#main'
+
   post "/parks/:id/add_dog", to: 'parks#add_dog'
 
   resources :parks
@@ -11,6 +12,9 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'users#show'
   get '/signup', to: 'users#new'
+
+  get '/parks/:id/new_dog', to: 'parks#new_dog'
+
   post '/users', to: 'users#create'
 
   get '/login' => 'sessions#new'

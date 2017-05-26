@@ -1,5 +1,5 @@
 class ParksController < ApplicationController
-  before_action :set_park, only: [:show, :edit, :update, :destroy, :add_dog]
+  before_action :set_park, only: [:show, :edit, :update, :destroy, :add_dog, :new_dog]
 
   # GET /parks
   # GET /parks.json
@@ -21,6 +21,10 @@ class ParksController < ApplicationController
   end
 
   def show
+    @user = current_user
+  end
+
+  def new_dog
     @user = current_user
   end
 

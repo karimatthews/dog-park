@@ -1,0 +1,21 @@
+<!-- For for adding a dog to the park -->
+
+<!-- Initialize the form -->
+
+
+
+<%= form_tag(controller: "parks", action: "add_dog", method: "post") do  %>
+
+  <div class="field" >
+    <%= select_tag( :dog_name,
+    options_for_select((@user.dogs - @park.dogs).collect{ |dog| [dog.name, dog.name]}),
+    {:style => 'width:180px; background-color:white;'})
+    %>
+    <p id="error"><%= flash[:error] %></p>
+  </div>
+
+
+    <%= submit_tag "Add Dog" %>
+
+
+<% end %>

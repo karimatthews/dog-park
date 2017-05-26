@@ -19,6 +19,11 @@
   <div>
     <strong>Address:</strong>
     <%= @park.address %>
+
+    <% if @park.latitude %>
+      <div id="map" style="height:300px; width:500px;"></div>
+    <% end %>
+
     <br>
     <br>
 
@@ -103,3 +108,24 @@
 
   </div>
 </div>
+
+<script>
+
+  function initMap() {
+    var locationMarker = {lat: <%= @park.latitude || 0 %>, lng: <%= @park.longitude || 0 %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: locationMarker
+    });
+
+    var marker = new google.maps.Marker({
+      position: locationMarker,
+      map: map
+    });
+
+  }
+
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDn3iZ9nsi06L5zuIqYTrK5StMaSBufPS4&callback=initMap">
+</script>

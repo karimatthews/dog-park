@@ -13,6 +13,12 @@
     </div>
   <% end %>
 
+  <div id="map" style="height:300px; width:500px;"></div>
+
+  <%= form.hidden_field :longitude, id: :longitude %>
+  <%= form.hidden_field :latitude, id: :latitude %>
+
+
   <div class="field">
     <%= form.label :name %>
     <div class='row'>
@@ -25,12 +31,7 @@
 
   <div class="field">
     <%= form.label :address %>
-    <div class='row'>
-      <span class='required-star'>
-        *
-      </span>
-      <%= form.text_field :address, id: :park_address %>
-    </div>
+    <%= form.text_field :address, id: :park_address %>
   </div>
 
   <br>
@@ -54,3 +55,54 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>
+  var markers;
+
+  function getLocation() {
+    navigator.geolocation.getCurrentPosition(initMap);
+  }
+
+  function initMap(currentLocation) {
+    markers = [];
+    var locationMarker = {lat: <%= @park.latitude || 'currentLocation.coords.latitude' %>, lng: <%= @park.longitude || 'currentLocation.coords.longitude' %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: locationMarker
+    });
+
+    var marker = new google.maps.Marker({
+      position: locationMarker,
+      map: map
+    });
+    markers.push(marker)
+
+
+    map.addListener('click', function(e) {
+      placeMarkerAndPanTo(e.latLng, map);
+    });
+  }
+
+  function placeMarkerAndPanTo(latLng, map) {
+    // clear current markers
+    markers.forEach(function(m) {
+      m.setMap(null)
+    })
+    // create new marker
+    var marker = new google.maps.Marker({
+      position: latLng,
+      map: map
+    });
+
+
+    map.panTo(latLng);
+    markers.push(marker)
+    // set form data
+    document.getElementById('latitude').value = latLng.lat()
+    document.getElementById('longitude').value = latLng.lng()
+  }
+</script>
+
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDn3iZ9nsi06L5zuIqYTrK5StMaSBufPS4&callback=getLocation">
+</script>

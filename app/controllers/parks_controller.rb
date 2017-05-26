@@ -104,7 +104,7 @@ class ParksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def park_params
-      from_params = params.require(:park).permit(:name, :address, :offlead, :fence, :bag)
+      from_params = params.require(:park).permit(:name, :address, :offlead, :fence, :bag, :latitude, :longitude)
       from_params.transform_values {|element|
         element.strip
       }

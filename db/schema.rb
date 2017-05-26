@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170526202205) do
+ActiveRecord::Schema.define(version: 20170526210147) do
 
   create_table "dogs", force: :cascade do |t|
     t.string "name"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20170526202205) do
     t.integer "offlead"
     t.integer "fence"
     t.integer "bag"
+    t.string "latitude"
+    t.string "longitude"
     t.index ["dog_id"], name: "index_parks_on_dog_id"
   end
 

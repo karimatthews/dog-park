@@ -11,7 +11,15 @@
     options_for_select((@user.dogs - @park.dogs).collect{ |dog| [dog.name, dog.name]}),
     {:style => 'width:180px; background-color:white;'})
     %>
+
     <p id="error"><%= flash[:error] %></p>
+  </div>
+
+  <div class="field">
+    <%= label_tag :time, "When do you usually walk this dog?" %>
+    <div class='row'>
+      <%= text_field_tag :time %>
+    </div>
   </div>
 
 

@@ -61,8 +61,11 @@
     <% @park.dogs.each do |dog| %>
       <%= link_to dog do %>
         <div class='card'>
-              <p style='font-size: 30px; text-align: center; padding: 0;'>
+              <p style='font-size: 30px; text-align: center; padding: 0; margin-bottom: 5px;'>
                 <%= dog.name %>
+              </p>
+              <p style='font-size: 15px; text-align: center; padding: 0;'>
+                <%= dog.walks.find_by(park: @park).time %>
               </p>
         </div>
       <% end %>

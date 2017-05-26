@@ -80,8 +80,10 @@ class ParksController < ApplicationController
       return redirect_to @park, flash: { error: 'Dog is already there' }
     end
 
-    @park.dogs << dog
-    @park.save!
+    walk = Walk.create({dog: dog, park: @park, time: params['time']})
+
+    # @park.dogs << dog
+    # @park.save!
     redirect_to @park, notice: "Successfully added #{dog_name.strip}!"
   end
 

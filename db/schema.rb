@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523035301) do
+ActiveRecord::Schema.define(version: 20170526202205) do
 
   create_table "dogs", force: :cascade do |t|
     t.string "name"
@@ -22,12 +22,6 @@ ActiveRecord::Schema.define(version: 20170523035301) do
     t.integer "user_id"
     t.string "owner"
     t.index ["user_id"], name: "index_dogs_on_user_id"
-  end
-
-  create_table "dogs_parks", id: false, force: :cascade do |t|
-    t.integer "dog_id", null: false
-    t.integer "park_id", null: false
-    t.index ["dog_id", "park_id"], name: "index_dogs_parks_on_dog_id_and_park_id"
   end
 
   create_table "parks", force: :cascade do |t|
@@ -48,6 +42,12 @@ ActiveRecord::Schema.define(version: 20170523035301) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "walks", force: :cascade do |t|
+    t.integer "dog_id"
+    t.integer "park_id"
+    t.string "time"
   end
 
 end

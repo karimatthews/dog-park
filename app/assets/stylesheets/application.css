@@ -55,7 +55,6 @@ COLOURS
    margin-left: 0px;
  }
 
-<<<<<<< Updated upstream
  h3 {
    margin: 20px;
    margin-left: 0px;
@@ -167,17 +166,37 @@ input[type='checkbox'] {
 }
 
  .card {
+   display: flex;
+   flex-direction: column;
    padding: 20px;
    padding-top: 40px;
    margin: 25px;
    margin-left: 0px;
    margin-top: 0px;
+   margin-bottom: 40px;
    border-radius: 10px;
    background-color: #D1D2D0;
    color: #383937;
    width: 300px;
    height: 120px;
    box-shadow: 1px 4px 5px #2E4600;
+ }
+
+ .card img {
+   position:relative;
+   height:55px;
+   width:55px;
+   border-radius:55px;
+   border:3px solid #2E4600;
+   background-color: #D1D2D0;
+   left:50%;
+   margin-left:-30px;
+   top: -65px;
+ }
+
+ .card span {
+   position: relative;
+   top: -30px;
  }
 
  .display-cards {

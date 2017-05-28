@@ -10,33 +10,36 @@
     <% @user.dogs.each do |dog| %>
       <%= link_to dog do %>
         <div class='card'>
-              <p style='font-size: 30px; text-align: center; padding: 0;'>
-                <%= dog.name %>
-              </p>
+          <%= image_tag 'DogProfile.svg' %>
+          <span style='font-size: 30px; text-align: center; padding: 0;'>
+            <%= dog.name %>
+          </span>
         </div>
       <% end %>
     <% end %>
 
     <%= link_to (new_dog_path) do %>
       <div class='card'>
-        <p style ='font-size:80px; font-weight: 100; margin: 0; line-height:80px; width: 300px; text-align: center;'>
+        <%= image_tag 'DogProfile.svg' %>
+
+        <span style ='font-size:80px;font-weight: 100; position: relative; top: -60px; text-align: center;'>
           +
-        </p>
+        </span>
       </div>
     <% end %>
   </div>
 
 
-  <h3>My favourite parks:</h3>
+  <h3 style='margin-bottom: 40px;'>My favourite parks:</h3>
 
   <div class = 'display-cards'>
     <% @user.parks.each do |park| %>
       <%= link_to park do %>
         <div class='card'>
+          <%= image_tag 'ParkProfile.svg' %>
               <span style='font-size: 30px;'>
                 <%= park.name %>
               </span>
-          <br><br>
           <%= park.address %>
         </div>
       <% end %>

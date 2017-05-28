@@ -35,18 +35,19 @@
 
   <br><br>
 
-  <h3> Favourite Parks: </h3>
+  <h3 style='margin-bottom: 40px;'> Favourite Parks: </h3>
 
   <div class = 'display-cards'>
     <% @dog.parks.each do |park| %>
       <%= link_to park do %>
         <div class='card'>
+          <%= image_tag 'ParkProfile.svg' %>
               <span style='font-size: 30px;'>
                 <%= park.name %>
               </span>
-          <br><br>
+          <br>
           <%= park.address %>
-          <br><br>
+          <br>
           <% if current_user && @dog.authorize(current_user) %>
           <%= link_to "(Leave this park)", "/parks/#{park.id}/#{@dog.id}", method: :delete,
             data: { confirm: "Are you sure you want to remove #{@dog.name} dog from the park?" } %>

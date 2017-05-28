@@ -9,6 +9,42 @@
 
   <h1>Parks</h1>
 
+  <div id="map" style="height:300px; width:500px;"></div>
+
+  <script>
+    function getLocation() {
+      navigator.geolocation.getCurrentPosition(initMap);
+    }
+
+    function initMap(currentLocation) {
+      markers = [];
+      var locationMarker = {lat: <%= 'currentLocation.coords.latitude' %>, lng: <%=  'currentLocation.coords.longitude' %>};
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: locationMarker
+      });
+      addMarkers(map);
+    }
+
+
+
+  function addMarkers(map) {
+    var locationMarker
+    <% @parks.each do |park| %>
+      <% if park.latitude.present? %>
+        var locationMarker = {lat: <%= park.latitude %>, lng: <%=  park.longitude %>};
+        var marker = new google.maps.Marker({
+          position: locationMarker,
+          map: map})
+        <% end %>
+    <% end %>
+  }
+  </script>
+
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDn3iZ9nsi06L5zuIqYTrK5StMaSBufPS4&callback=getLocation">
+  </script>
+
   <div class = 'display-cards'>
     <% @parks.each do |park| %>
       <%= link_to park do %>

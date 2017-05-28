@@ -215,7 +215,10 @@ input[type='checkbox'] {
  }
 
 
-
+#map {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
 
  /* sidebar stuff*/
 

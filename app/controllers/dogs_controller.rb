@@ -69,6 +69,15 @@ class DogsController < ApplicationController
     end
   end
 
+  def remove_dog
+    @park = Park.find(params[:park_id])
+    @dog = Dog.find(params[:dog_id])
+    return redirect_to @dog unless @dog.authorize(current_user)
+
+    @park.dogs.delete(@dog)
+    redirect_to @dog, notice: "Successfully removed #{@dog.name} from #{@park.name}!"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dog

@@ -47,9 +47,9 @@
           </span>
 
           <br>
-          <% if current_user && @dog.authorize(current_user) %>
-            <%= link_to "(Leave this park)", "/parks/#{park.id}/#{@dog.id}", method: :delete,
-              data: { confirm: "Are you sure you want to remove #{@dog.name} dog from the park?" } %>
+          <% if @dog.authorize(@user) %>
+            <%= link_to "(Leave this park)", "/dogs/#{@dog.id}/#{park.id}", method: :delete,
+              data: { confirm: "Are you sure you want to remove #{@dog.name} from the #{park.name}?" } %>
           <% end %>
         </div>
       <% end %>

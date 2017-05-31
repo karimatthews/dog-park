@@ -63,7 +63,7 @@ class ParksController < ApplicationController
   def destroy
     @park.destroy
     respond_to do |format|
-      format.html { redirect_to parks_url, notice: 'Park was successfully destroyed.' }
+      format.html { redirect_to parks_url, notice: 'Park was successfully removed.' }
       format.json { head :no_content }
     end
   end
@@ -84,17 +84,10 @@ class ParksController < ApplicationController
 
     # @park.dogs << dog
     # @park.save!
-    redirect_to @park, notice: "Successfully added #{dog_name.strip}!"
+    redirect_to @park, notice: "Successfully added #{dog_name}!"
   end
 
-  def remove_dog
-    park = Park.find(params[:park_id])
-    dog = Dog.find(params[:dog_id])
-    return redirect_to park unless dog.authorize(current_user)
-
-    park.dogs.delete(dog)
-    redirect_to park, notice: "Successfully removed #{dog.name.strip}!"
-  end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

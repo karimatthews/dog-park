@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :parks
 
-  delete '/parks/:park_id/:dog_id', to: 'parks#remove_dog'
+  delete '/dogs/:dog_id/:park_id/', to: 'dogs#remove_dog'
 
   resources :dogs
 

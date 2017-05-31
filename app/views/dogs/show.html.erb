@@ -42,18 +42,30 @@
       <%= link_to park do %>
         <div class='card'>
           <%= image_tag 'ParkProfile.svg' %>
-              <span style='font-size: 30px;'>
-                <%= park.name %>
-              </span>
-          <br>
-          <%= park.address %>
+          <span style='font-size: 30px; width: 300px;'>
+            <%= park.name %>
+          </span>
+
           <br>
           <% if current_user && @dog.authorize(current_user) %>
-          <%= link_to "(Leave this park)", "/parks/#{park.id}/#{@dog.id}", method: :delete,
-            data: { confirm: "Are you sure you want to remove #{@dog.name} dog from the park?" } %>
+            <%= link_to "(Leave this park)", "/parks/#{park.id}/#{@dog.id}", method: :delete,
+              data: { confirm: "Are you sure you want to remove #{@dog.name} dog from the park?" } %>
           <% end %>
         </div>
       <% end %>
+    <% end %>
+
+    <% if current_user %>
+
+        <%= link_to "/parks/" do %>
+          <div class='card'>
+            <%= image_tag 'ParkProfile.svg' %>
+            <span style='font-size: 30px; text-align: center; padding: 0;'>
+              Explore parks
+            </span>
+          </div>
+        <% end %>
+
     <% end %>
 
   </div>

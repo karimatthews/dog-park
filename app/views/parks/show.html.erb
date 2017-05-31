@@ -19,77 +19,83 @@
   <div>
     <strong>Address:</strong>
     <%= @park.address %>
-
-    <% if @park.latitude %>
-      <div id="map" style="height:300px; width:500px;"></div>
-    <% end %>
-
-    <br>
-    <br>
-
-    <!-- <strong>Is there an off-lead area?</strong> -->
-    <%=
-    if @park.offlead ==1
-      "There is an off-lead area."
-    else
-      "There is no off-lead area."
-    end
-    %>
-    <br><br>
-    <!-- <strong>Is the park fully fenced?</strong> -->
-    <%=
-    if @park.fence == 1
-      "The park is fully-fenced."
-    else
-      "The park is not fully fenced."
-    end
-    %>
-    <br>
-    <br>
-    <!-- <strong>Are doggy bags provided?</strong> -->
-    <%=
-      if @park.bag == 1
-        "Dog bags are provided."
-      else
-        "No dog bags provided."
-      end
-    %>
-    <br>
-    <br>
   </div>
 
-  <br>
-  <br>
+  <div style='display:flex'>
+    <div>
 
-
-  <div class = 'display-cards'>
-    <% @park.dogs.each do |dog| %>
-      <%= link_to dog do %>
-        <div class='card'>
-          <%= image_tag 'DogProfile.svg' %>
-          <span style='font-size: 30px; text-align: center; padding: 0; margin-bottom: 5px;'>
-            <%= dog.name %>
-          </span> <br>
-          <span style='font-size: 15px; text-align: center; padding: 0;'>
-            <%= dog.walks.find_by(park: @park).time %>
-          </span>
-        </div>
+      <% if @park.latitude %>
+        <div id="map" style="height:300px; width:500px;"></div>
       <% end %>
-    <% end %>
+
+      <br>
+      <br>
+
+      <!-- <strong>Is there an off-lead area?</strong> -->
+      <%=
+      if @park.offlead ==1
+        "There is an off-lead area."
+      else
+        "There is no off-lead area."
+      end
+      %>
+      <br><br>
+      <!-- <strong>Is the park fully fenced?</strong> -->
+      <%=
+      if @park.fence == 1
+        "The park is fully-fenced."
+      else
+        "The park is not fully fenced."
+      end
+      %>
+      <br>
+      <br>
+      <!-- <strong>Are doggy bags provided?</strong> -->
+      <%=
+        if @park.bag == 1
+          "Dog bags are provided."
+        else
+          "No dog bags provided."
+        end
+      %>
+      <br>
+      <br>
+    </div>
+
+    <br>
+    <br>
 
 
-    <% if current_user %>
-
-        <%= link_to "/parks/#{@park.id}/new_dog" do %>
+    <div class = 'display-cards'>
+      <% @park.dogs.each do |dog| %>
+        <%= link_to dog do %>
           <div class='card'>
-            <p style ='font-size:80px; font-weight: 100; margin: 0; line-height:80px; width: 300px; text-align: center;'>
-              +
-            </p>
+            <%= image_tag 'DogProfile.svg' %>
+            <span style='font-size: 30px; text-align: center; padding: 0; margin-bottom: 5px;'>
+              <%= dog.name %>
+            </span> <br>
+            <span style='font-size: 15px; text-align: center; padding: 0;'>
+              <%= dog.walks.find_by(park: @park).time %>
+            </span>
           </div>
         <% end %>
-    
-    <% end %>
+      <% end %>
 
+
+      <% if current_user %>
+
+          <%= link_to "/parks/#{@park.id}/new_dog" do %>
+            <div class='card'>
+              <%= image_tag 'DogProfile.svg' %>
+              <span style ='font-size:80px; font-weight: 100; position: relative; top: -60px; text-align: center;'>
+                +
+              </span>
+            </div>
+          <% end %>
+
+      <% end %>
+
+    </div>
   </div>
 </div>
 

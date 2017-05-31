@@ -197,6 +197,11 @@ input[type='checkbox'] {
  .card span {
    position: relative;
    top: -30px;
+   text-align: center; padding: 0;
+ }
+
+ .card a {
+   text-align: center;
  }
 
  .display-cards {
@@ -204,7 +209,9 @@ input[type='checkbox'] {
    flex-direction: row;
    flex-wrap: wrap;
    margin-bottom: 20px;
+   margin-top: 20px;
    height: fit-content;
+   width: fit-content;
  }
 
 
@@ -237,6 +244,8 @@ input[type='checkbox'] {
 #map {
   margin-top: 20px;
   margin-bottom: 40px;
+  margin-right: 60px;
+  display: flex;
 }
 
  /* sidebar stuff*/

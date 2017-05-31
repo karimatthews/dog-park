@@ -1,24 +1,30 @@
 <!-- Sidebar View -->
-<div id = 'sidebar'>
-  <%= link_to("/") do %>
-    <div id='sidebarHeader' class = "sidebarTab">
-      <h2 style = 'text-align: center;'>ParkPups</h2>
-        <p style = 'text-align: center;'>Where your dog <br> wants to be</p>
+<div id='sidebar' style = 'display: flex; flex-direction: column;'>
+
+
+
+  <%= link_to "/" do %>
+    <div style='width: 80px;'>
+      <%= image_tag 'greyhound.svg' %>
+    </div>
+    <div>
+      ParkPups
     </div>
   <% end %>
 
-  <% if current_user %>
-    <%= link_to('/profile') do %>
-      <div class="sidebarTab <%= "activeTab" if current_page?('/profile') %> "> My Profile </div>
+  <div style = 'margin-top: 40px;'>
+    <%= link_to 'All Parks', parks_path %>
+  </div>
+
+  <div style = 'margin-top: auto; margin-bottom: 80px;'>
+    <% if current_user %>
+        <%= link_to 'Profile', '/profile' %>
+        <br><br>
+        <%= link_to "Logout", '/logout' %>
+    <% else %>
+      <%= link_to 'Login', '/login' %>
+      <br><br>
+      <%= link_to 'Signup', '/signup' %>
     <% end %>
-  <% end %>
-
-  <!-- <%= link_to(dogs_path) do %>
-    <div class="sidebarTab <%= "activeTab" if current_page?(dogs_path) %> "> My Dogs </div>
-  <% end %> -->
-
-  <%= link_to(parks_path) do %>
-    <div class="sidebarTab <%= "activeTab" if current_page?(parks_path) %> "> Parks </div>
-  <% end %>
-
+  </div>
 </div>

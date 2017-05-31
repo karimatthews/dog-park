@@ -1,9 +1,16 @@
 <!-- Topbar View -->
 <div id='topbar' style = 'display: flex; flex-direction: row;'>
 
-  <div style = 'font-weight: bold'>
-    <%= link_to 'ParkPups', "/"  %>
-  </div>
+
+
+  <%= link_to "/" do %>
+    <div>
+      <%= image_tag 'greyhound.svg' %>
+    </div>
+    <div>
+      ParkPups
+    </div>
+  <% end %>
 
   <div style = 'margin-left: 40px;'>
     <%= link_to 'All Parks', parks_path %>

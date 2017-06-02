@@ -34,6 +34,10 @@ COLOURS
 
  */
 
+ html {
+   font-family: helvetica, sans-serif, serif;
+ }
+
  body {
    background-color: #EAEBE9;
    display: flex;
@@ -46,6 +50,22 @@ COLOURS
    left:0;
    right:0;
    font-size:18px;
+ }
+
+ .contents {
+   display: flex;
+   flex-direction: column;
+   background-color: inherit;
+   color: inherit;
+   width: 100vw;
+   padding-left: 0px;
+   position: relative;
+   /*align-items: center;
+   justify-content: center;*/
+   margin-top: 40px;
+   margin-right: 60px;
+   margin-left: 174px;
+   overflow: auto;
  }
 
  h1 {
@@ -139,21 +159,7 @@ input[type='checkbox'] {
    background-color: #f0f0f0;
 }
 
- .contents {
-   display: flex;
-   flex-direction: column;
-   background-color: inherit;
-   color: inherit;
-   width: 100vw;
-   padding-left: 100px;
-   position: relative;
-   /*align-items: center;
-   justify-content: center;*/
-   margin-top: 40px;
-   margin-right: 60px;
-   margin-left: 60px;
-   overflow: auto;
- }
+
 
 .form {
   padding: 40px;

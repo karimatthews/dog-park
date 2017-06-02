@@ -1,30 +1,44 @@
 <!-- Sidebar View -->
-<div id='sidebar' style = 'display: flex; flex-direction: column;'>
+<div id='sidebar' style = 'display: flex; flex-direction: column; align-items: center;'>
 
-
-
-  <%= link_to "/" do %>
-    <div style='width: 80px;'>
-      <%= image_tag 'greyhound.svg' %>
-    </div>
-    <div>
-      ParkPups
-    </div>
-  <% end %>
-
-  <div style = 'margin-top: 40px;'>
-    <%= link_to 'All Parks', parks_path %>
-  </div>
-
-  <div style = 'margin-top: auto; margin-bottom: 80px;'>
-    <% if current_user %>
-        <%= link_to 'Profile', '/profile' %>
-        <br><br>
-        <%= link_to "Logout", '/logout' %>
-    <% else %>
-      <%= link_to 'Login', '/login' %>
-      <br><br>
-      <%= link_to 'Signup', '/signup' %>
+    <!-- Main page button -->
+    <%= link_to "/" do %>
+      <div style='width: 80px; margin-top: 20px;'>
+        <%= image_tag 'greyhound.svg' %>
+      </div>
+      <div style='font-weight: lighter; font-family: monospace'>
+        ParkPups
+      </div>
     <% end %>
-  </div>
+
+
+    <!-- Profile   -->
+    <% if current_user %>
+      <div style = 'margin-top:40px;'>
+        <%= link_to 'My Profile', '/profile' %>
+      </div>
+    <% end %>
+
+    <!-- All parks button -->
+    <div style = 'margin-top:40px;'>
+      <%= link_to 'All Parks', parks_path %>
+    </div>
+
+
+  <!-- (Logout) / (login and signup button) -->
+    <% if current_user %>
+      <div style = 'margin-top: auto; margin-bottom: 60px;'>
+        <%= link_to "Logout", '/logout' %>
+      </div>
+    <% else %>
+      <div style = 'margin-top: auto; margin-bottom: 0px;'>
+        <%= link_to 'Login', '/login' %>
+      </div>
+
+      <div style = 'margin-top: 20px; margin-bottom: 60px;'>
+        <%= link_to 'Signup', '/signup' %>
+      </div>
+    <% end %>
+
+
 </div>

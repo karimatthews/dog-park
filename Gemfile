@@ -34,6 +34,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'indefinite_article'
 
+gem 'validates_email_format_of'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

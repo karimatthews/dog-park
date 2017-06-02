@@ -5,37 +5,42 @@
   <div class='form'>
     <%= form_for :user, url: '/users' do |form| %>
 
+      <% if @user && @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this park from being saved:</h2>
+
+          <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
       <div class='row'>
         <%= form.label :name %>
-        <span class='required-star'>
-          *
-        </span>
+
         <%= form.text_field( :name, id: :user_name, :required => true) %>
       </div>
 
       <div class='row'>
         <%= form.label :email %>
-        <span class='required-star'>
-          *
-        </span>
+
         <%= form.text_field( :email, id: :user_email, :required => true) %>
+
       </div>
 
 
       <div class='row'>
         <%= form.label :password %>
-        <span class='required-star'>
-          *
-        </span>
+
         <%= form.password_field( :password, id: :password, :required => true) %>
       </div>
 
 
       <div class='row'>
         <%= form.label :password_confirmation %>
-        <span class='required-star'>
-          *
-        </span>
+
         <%= form.password_field( :password_confirmation, id: :password_confirmation, :required => true) %>
       </div>
 

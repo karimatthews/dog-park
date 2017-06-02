@@ -83,7 +83,8 @@
 
 
       <% if current_user %>
-
+        <!-- if the user has no dogs (that have not yet been added to the park) -->
+        <% if (current_user.dogs - @park.dogs).present? %>
           <%= link_to "/parks/#{@park.id}/new_dog" do %>
             <div class='card'>
               <%= image_tag 'DogProfile.svg' %>
@@ -93,6 +94,17 @@
             </div>
           <% end %>
 
+        <% else %>
+          <%= link_to "/dogs/new" do %>
+            <div class='card'>
+              <%= image_tag 'DogProfile.svg' %>
+              <span style ='font-size:80px; font-weight: 100; position: relative; top: -60px; text-align: center;'>
+                +
+              </span>
+            </div>
+          <% end %>
+          
+        <% end %>
       <% end %>
 
     </div>

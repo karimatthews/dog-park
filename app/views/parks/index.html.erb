@@ -69,21 +69,20 @@
     addMarkers(map);
   }
 
+  function addMarkers(map) {
+    var locationMarker
+    <% @parks.each do |park| %>
+      <% if park.latitude.present? %>
+        var locationMarker = {lat: <%= park.latitude %>, lng: <%=  park.longitude %>};
+        var marker = new google.maps.Marker({
+          position: locationMarker,
+          map: map})
+        <% end %>
+    <% end %>
+  }
 
+  function onMapLoad() {
+    getLocation()
+  }
 
-function addMarkers(map) {
-  var locationMarker
-  <% @parks.each do |park| %>
-    <% if park.latitude.present? %>
-      var locationMarker = {lat: <%= park.latitude %>, lng: <%=  park.longitude %>};
-      var marker = new google.maps.Marker({
-        position: locationMarker,
-        map: map})
-      <% end %>
-  <% end %>
-}
-</script>
-
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDn3iZ9nsi06L5zuIqYTrK5StMaSBufPS4&callback=getLocation">
 </script>

@@ -130,10 +130,10 @@
       position: locationMarker,
       map: map
     });
-
   }
 
-</script>
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDn3iZ9nsi06L5zuIqYTrK5StMaSBufPS4&callback=initMap">
+  function onMapLoad() {
+    initMap()
+  }
+
 </script>

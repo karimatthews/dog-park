@@ -247,11 +247,14 @@ input[type='checkbox'] {
  }
 
 
-#map {
-  margin-top: 20px;
-  margin-bottom: 40px;
-  margin-right: 60px;
+.map-container {
   display: flex;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-right: 60px;
+  background-color: #D1D2D0;
+  box-shadow: 1px 2px 3px #383937;
+  border-radius: 4px;
 }
 
  /* sidebar stuff*/

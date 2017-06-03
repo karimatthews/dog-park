@@ -25,7 +25,13 @@
     <div>
 
       <% if @park.latitude %>
-        <div id="map" style="height:300px; width:500px;"></div>
+        <div class= 'map-container' style="height:500px; min-width:400px;">
+          <div id="map" style = "height: 100%; width: 100%; display: flex">
+            <span style='width: 400px; align-self: center; text-align: center'>
+              Loading map...
+            </span>
+          </div>
+        </div>
       <% end %>
 
       <br>
@@ -103,7 +109,7 @@
               </span>
             </div>
           <% end %>
-          
+
         <% end %>
       <% end %>
 

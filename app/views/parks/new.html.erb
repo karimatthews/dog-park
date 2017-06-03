@@ -2,7 +2,19 @@
 
   <h1>New Park</h1>
 
-  <div class='form'>
-    <%= render 'form', park: @park %>
+  <div style = 'display: flex'>
+
+    <div class= 'map-container' style="height:500px; min-width:400px; max-width: 500px">
+      <div id="map" style = "height: 100%; width: 100%; display: flex">
+        <span style='width: 400px; align-self: center; text-align: center'>
+          Loading map...
+        </span>
+      </div>
+    </div>
+
+    <div class='form'>
+      <%= render 'form', park: @park %>
+    </div>
+
   </div>
 </div>

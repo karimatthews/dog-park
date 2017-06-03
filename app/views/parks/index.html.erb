@@ -11,7 +11,13 @@
 
   <div style='display: flex;'>
 
-    <div id="map" style="height:500px; width:800px;"></div>
+    <div class= 'map-container' style="height:500px; min-width:400px;">
+      <div id="map" style = "height: 100%; width: 100%; display: flex">
+        <span style='width: 400px; align-self: center; text-align: center'>
+          Loading map...
+        </span>
+      </div>
+    </div>
 
     <div class = 'display-cards'>
 
@@ -24,9 +30,9 @@
             <span style='font-size: 30px;'>
               <%= park.name %>
             </span>
-            <span style='font-size: 15px; padding-top: 20px;'>
+            <!-- <span style='font-size: 15px; padding-top: 20px;'>
               <%= park.address %>
-            </span>
+            </span> -->
           </div>
         <% end %>
       <% end %>

@@ -27,7 +27,7 @@
 
   <!-- (Logout) / (login and signup button) -->
     <% if current_user %>
-      <div style = 'margin-top: auto; margin-bottom: 60px;'>
+      <div style = 'margin-top: auto; margin-bottom: 0px;'>
         <%= link_to "Logout", '/logout' %>
       </div>
     <% else %>
@@ -35,10 +35,13 @@
         <%= link_to 'Login', '/login' %>
       </div>
 
-      <div style = 'margin-top: 20px; margin-bottom: 60px;'>
+      <div style = 'margin-top: 20px; margin-bottom: 0px;'>
         <%= link_to 'Signup', '/signup' %>
       </div>
     <% end %>
 
+    <div style = 'margin-top: 20px; margin-bottom: 40px; color: #001B10'>
+      <%= mail_to 'parkpupsapp@gmail.com', 'Contact us' %>
+    </div>
 
 </div>

@@ -80,6 +80,9 @@
     });
     markers.push(marker)
 
+    document.getElementById('latitude').value = currentLocation.coords.latitude
+    document.getElementById('longitude').value = currentLocation.coords.longitude 
+
 
     map.addListener('click', function(e) {
       placeMarkerAndPanTo(e.latLng, map);

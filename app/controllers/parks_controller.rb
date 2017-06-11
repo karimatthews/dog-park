@@ -35,7 +35,7 @@ class ParksController < ApplicationController
 
     respond_to do |format|
       if @park.save
-        format.html { redirect_to @park, notice: 'Park was successfully created.' }
+        format.html { redirect_to @park, notice: 'Park was successfully added.' }
         format.json { render :show, status: :created, location: @park }
       else
         format.html { render :new }
@@ -87,7 +87,7 @@ class ParksController < ApplicationController
     redirect_to @park, notice: "Successfully added #{dog_name}!"
   end
 
-  
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

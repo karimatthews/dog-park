@@ -14,8 +14,8 @@
 
     <%= select_tag( :dog_name,
     options_for_select((@user.dogs - @park.dogs).collect{ |dog| [dog.name, dog.name]}),
-    {:style => 'width:150px; background-color:white; height: 20px;'})
-    %>
+    :style => 'width:150px; background-color:white;',
+    )%>
 
   </div>
 
@@ -23,10 +23,15 @@
     <%= label_tag :time, "When do you usually walk this dog?" %>
 
     <%= select_tag :time, options_for_select(["6am", "7am", "8am", "9am", "10am", "11am", "12pm",
-      "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm"]), {:style => 'width: 80px; background-color:white;'} %>
+      "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm"]),
+      :style => 'width: 80px; background-color:white;',
+      multiple: true,
+      size: 16
+    %>
 
   </div>
+  <br>
 
-  <%= submit_tag "Join Park", {:style => 'width: fit-content; align-self: right; padding: 5px;'}%>
+  <%= submit_tag "Join Park", {:style => 'width:80px; align-self: right; padding: 5px;'}%>
 
 <% end %>

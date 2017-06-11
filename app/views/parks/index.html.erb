@@ -56,14 +56,20 @@
 
 <script>
   function getLocation() {
-    navigator.geolocation.getCurrentPosition(initMap);
+    // navigator.geolocation.getCurrentPosition(initMap);
+    initMap({
+      coords: {
+        latitude: -37.814251,
+        longitude: 144.963169
+      }
+    })
   }
 
   function initMap(currentLocation) {
     markers = [];
     var locationMarker = {lat: <%= 'currentLocation.coords.latitude' %>, lng: <%=  'currentLocation.coords.longitude' %>};
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 12,
+      zoom: 11,
       center: locationMarker
     });
     addMarkers(map);

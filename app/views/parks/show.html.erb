@@ -10,12 +10,13 @@
 
     <% if current_user %>
     <span style='margin-top: 25px;'>
-      (<%= link_to 'Edit', edit_park_path(@park) %> |
-      <%= link_to 'Remove', @park, method: :delete, data: { confirm: 'Are you sure?' } %>)
+      (<%= link_to 'Edit', edit_park_path(@park) %>
+      <!-- | <%= link_to 'Remove', @park, method: :delete, data: { confirm: 'Are you sure?' } %> -->
+      )
     </span>
     <% end %>
   </div>
-  
+
   <!-- <div>
     <strong>Address:</strong>
     <%= @park.address %>

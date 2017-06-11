@@ -71,22 +71,55 @@
     <br>
     <br>
 
-
     <div class = 'display-cards'>
-      <% @park.dogs.each do |dog| %>
-        <%= link_to dog do %>
-          <div class='card'>
-            <%= image_tag 'DogProfile.svg' %>
-            <span style='font-size: 30px; text-align: center; padding: 0; margin-bottom: 5px;'>
-              <%= dog.name %>
-            </span> <br>
-            <span style='font-size: 15px; text-align: center; padding: 0;'>
-              <%= dog.walks.find_by(park: @park).time %>
-            </span>
-          </div>
+
+
+      <% if current_user %>
+        <% (@park.dogs & current_user.dogs).each do |dog| %>
+          <%= link_to dog do %>
+            <div class='card' style='background-color: #B8B9B7'>
+              <%= image_tag 'DogProfile.svg' %>
+              <span style='font-size: 30px; text-align: center; padding: 0; margin-bottom: 5px;'>
+                <%= dog.name %>
+              </span> <br>
+              <span style='font-size: 15px; text-align: center; padding: 0;'>
+                <%= dog.walks.find_by(park: @park).time %>
+              </span>
+            </div>
+          <% end %>
+        <% end %>
+
+
+        <% (@park.dogs - current_user.dogs).each do |dog| %>
+          <%= link_to dog do %>
+            <div class='card'>
+              <%= image_tag 'DogProfile.svg' %>
+              <span style='font-size: 30px; text-align: center; padding: 0; margin-bottom: 5px;'>
+                <%= dog.name %>
+              </span> <br>
+              <span style='font-size: 15px; text-align: center; padding: 0;'>
+                <%= dog.walks.find_by(park: @park).time %>
+              </span>
+            </div>
+          <% end %>
+        <% end %>
+
+      <% else %>
+
+        <% @park.dogs.each do |dog| %>
+          <%= link_to dog do %>
+            <div class='card'>
+              <%= image_tag 'DogProfile.svg' %>
+              <span style='font-size: 30px; text-align: center; padding: 0; margin-bottom: 5px;'>
+                <%= dog.name %>
+              </span> <br>
+              <span style='font-size: 15px; text-align: center; padding: 0;'>
+                <%= dog.walks.find_by(park: @park).time %>
+              </span>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
-
 
       <% if current_user %>
         <!-- if the user has no dogs (that have not yet been added to the park) -->
@@ -112,6 +145,7 @@
 
         <% end %>
       <% end %>
+
 
     </div>
   </div>

@@ -49,7 +49,7 @@
 
   <br>
   <div class="actions">
-    <%= form.submit "Add Park" %>
+    <%= form.submit "Submit" %>
   </div>
 <% end %>
 
@@ -80,8 +80,8 @@
     });
     markers.push(marker)
 
-    document.getElementById('latitude').value = currentLocation.coords.latitude
-    document.getElementById('longitude').value = currentLocation.coords.longitude 
+    document.getElementById('latitude').value = locationMarker.lat
+    document.getElementById('longitude').value = locationMarker.lng
 
 
     map.addListener('click', function(e) {

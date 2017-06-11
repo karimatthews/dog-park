@@ -113,10 +113,8 @@
               <%= image_tag 'DogProfile.svg' %>
               <span style='font-size: 30px; text-align: center; padding: 0; margin-bottom: 5px;'>
                 <%= dog.name %>
-              </span> <br>
-              <span style='font-size: 15px; text-align: center; padding: 0;'>
-                <%= dog.walks.find_by(park: @park).time %>
-              </span>
+              </span> 
+
             </div>
           <% end %>
         <% end %>

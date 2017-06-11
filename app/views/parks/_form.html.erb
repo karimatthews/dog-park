@@ -26,30 +26,30 @@
     </div>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :address %>
     <%= form.text_field :address, id: :park_address %>
-  </div>
+  </div> -->
 
   <br>
   <div class="field check">
     <%= form.check_box :offlead, id: :park_offlead %>
-    <%= form.label :offlead %>
+    <%= form.label :offlead, "Off-Lead?" %>
   </div>
 
   <div class="field check">
     <%= form.check_box :fence, id: :park_fence %>
-    <%= form.label :fence %>
+    <%= form.label :fence, "Fenced?" %>
   </div>
 
   <div class="field check">
     <%= form.check_box :bag, id: :park_bag %>
-    <%= form.label :bag %>
+    <%= form.label :bag, "Bags Provided?" %>
   </div>
 
   <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Add Park" %>
   </div>
 <% end %>
 

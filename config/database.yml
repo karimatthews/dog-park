@@ -13,7 +13,7 @@ default: &default
 development:
   <<: *default
   # database: db/development.sqlite3
-  database: pp_db_dev
+  database: park_pups_db_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -21,9 +21,9 @@ development:
 test:
   <<: *default
   # database: db/test.sqlite3
-  database: pp_db_test
+  database: park_pups_db_test
 
 production:
   <<: *default
   # database: db/production.sqlite3
-  database: pp_db_prod
+  database: park_pups_db_prod

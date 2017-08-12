@@ -6,7 +6,7 @@ ParkPups is a Rails app that is kind of like Facebook for dogs. It tracks which 
 
 ## Usage
 
-ParkPups is currently deployed via Heroku to parkpups.net
+ParkPups is currently deployed via Heroku to [parkpups.net](http://www.parkpups.net/)
 
 ## Technology
 
